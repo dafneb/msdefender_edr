@@ -1,0 +1,21 @@
+name: Assign Pull Request Creator
+
+on:
+  pull_request:
+    types: 
+      - opened
+      - reopened
+    branches:
+      - 'main'
+      - 'stable'
+      - 'release/v*'
+
+jobs:
+  assign-assignees:
+    permissions:
+      issues: write
+      pull-requests: write  
+    uses: dafneb/.github/.github/workflows/pull-request-assignee.yml@main
+    with:
+      assignees: ${{ github.actor }}
+    secrets: inherit
