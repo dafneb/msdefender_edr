@@ -9,6 +9,7 @@ on:
       - 'main'
       - 'stable'
       - 'release/v*'
+      - 'development'
 
 jobs:
   assign-assignees:
